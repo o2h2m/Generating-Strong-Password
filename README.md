@@ -1,5 +1,5 @@
 
-Strictly speaking: Shall generate a strong password if the user inputs all the choices and longer password.
+Strictly speaking: Shall generate a strong password if the user inputs all the choices and inputs the desired length of password.
 
 # Password Generator - Java
 
