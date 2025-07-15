@@ -25,5 +25,6 @@ A simple and secure password generator built using **Java**, `SecureRandom`, and
 
 ## Sample Output
 Let's assume that the user inputs all the choices and the desired length is 18, the output will be:
+
 pJFjeHN>3y9Kc?om@S
 
