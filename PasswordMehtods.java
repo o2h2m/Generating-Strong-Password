@@ -5,11 +5,11 @@ import java.util.List;
 
 public class PasswordMethods {
 
-    String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
     @SuppressWarnings("unused")
-    int length;
-    SecureRandom random = new SecureRandom();
-    StringBuilder password = new StringBuilder();
+    private int length;
+    private final String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+    private final SecureRandom random = new SecureRandom();
+    private final StringBuilder password = new StringBuilder();
 
     @SuppressWarnings("unused")
     Boolean checkLength(int length){
