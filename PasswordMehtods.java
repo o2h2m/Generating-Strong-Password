@@ -20,7 +20,6 @@ public class PasswordMethods {
     @SuppressWarnings("unused")
     void passwordGenerator(int length){
         List<String> ch = new ArrayList<>();
-
         
         for(int i = 0; i <= length; i++){
             ch.add(characters.charAt(random.nextInt(characters.length()))+ "");
