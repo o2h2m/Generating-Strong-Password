@@ -5,7 +5,6 @@ import java.util.List;
 
 public class PasswordMethods {
 
-    //I am going to create attributes to this project
     String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
     @SuppressWarnings("unused")
     int length;
@@ -17,7 +16,7 @@ public class PasswordMethods {
         return length >= 13 && length <= 41;
     }
 
-    //method GeneratePassword
+    //method passwordGenerator
     @SuppressWarnings("unused")
     void passwordGenerator(int length){
         List<String> ch = new ArrayList<>();
