@@ -24,6 +24,10 @@ Add the following lines to the file:
 cd /your/file/path/Name_of_file
 java PasswordProject
 ```
+Now, Make that file executable by typing the following command:
+```bash
+$ chmod +x /your/file/path
+```
 Finally, add the following line to your `~/.bashrc` file to ensure the directory is in your system PATH and prevent "command not found" errors, then reload your shell configuration:
 ```bash
 export PATH="$HOME/.local/bin:$PATH"
