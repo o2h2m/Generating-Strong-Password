@@ -5,7 +5,7 @@ public class PasswordProject {
         SecureRandom random = new SecureRandom();
         while(true){
             int length = random.nextInt(40);
-            if(pa.checkLength(length) == false);
+            if(!pa.checkLength(length));
             else{
                 pa.passwordGenerator(length);
                 break;
