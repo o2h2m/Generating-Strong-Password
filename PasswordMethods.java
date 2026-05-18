@@ -1,7 +1,7 @@
 import java.awt.Toolkit;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.*;
 import java.security.SecureRandom;
+import java.util.Arrays;
 import java.util.regex.Pattern;
 
 public class PasswordMethods {
@@ -9,9 +9,8 @@ public class PasswordMethods {
     //I am going to create attributes to this project
     @SuppressWarnings("unused")
     private int length;
-    private final String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+={}[],.";
+    private final String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+=";
     private final SecureRandom random = new SecureRandom();
-    private final StringBuilder password = new StringBuilder();
 
     Boolean checkLength(int length){
         return length >= 18 && length <= 41;
@@ -19,14 +18,15 @@ public class PasswordMethods {
 
     //method GeneratePassword
     void passwordGenerator(int length) throws InterruptedException{
-        password.setLength(0);
-        char[] randomChar = new char[length+1];
+        char[] tempPassword = new char[length+1];
         for(int i = 0; i <= length; i++){
-            randomChar[i] = characters.charAt(random.nextInt(characters.length()));
-            password.append(randomChar[i]);
+            tempPassword[i] = characters.charAt(random.nextInt(characters.length()));
         }
-        //Even more randomness!
-        fisherYates(password);
+        //even more randomness!
+        fisherYates(tempPassword);
+
+        String password = new String(tempPassword);
+        Arrays.fill(tempPassword, '\0');
 
         //Copying the password to the system clipboard 
         StringSelection text = new StringSelection(password.toString());
@@ -40,21 +40,22 @@ public class PasswordMethods {
             //For some reason, I have to type Thread.sleep() to let the system register the data.
             Thread.sleep(500);
             System.out.println("\nThe password has been copied, check your system clipboard.\n");
+            Arrays.fill(password.toCharArray(), '\0');
         }
     }
 
     //Ensures that the password has at lesat: one capital letter, one small letter, one digit, and one special symbol
-    private boolean ensureEntropy(StringBuilder password){
+    private boolean ensureEntropy(String password){
         return Pattern.matches("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^A-Za-z0-9]).+$", password);
     }
 
-    private void fisherYates(StringBuilder password){
-        for(int i = password.length()-1; i >0; i--){
+    private void fisherYates(char[] pwd){
+        for(int i = pwd.length-1; i >0; i--){
             int j = random.nextInt(i+1);
 
-            char temp = password.charAt(i);
-            password.setCharAt(i, password.charAt(j));
-            password.setCharAt(j, temp);
+            char temp = pwd[j];
+            pwd[j] = pwd[i];
+            pwd[i] = temp;
         }
     }
 }
