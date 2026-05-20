@@ -7,8 +7,6 @@ import java.util.regex.Pattern;
 public class PasswordMethods {
 
     //I am going to create attributes to this project
-    @SuppressWarnings("unused")
-    private int length;
     private final String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+=";
     private final SecureRandom random = new SecureRandom();
 
